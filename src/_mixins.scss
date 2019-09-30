@@ -1,0 +1,73 @@
+@mixin break($args) {
+  // @if $args == 959px {
+  @media screen and (max-width: $args) {
+    @content;
+  }
+}
+
+$socialMediaList: "one", "two", "three", "four";
+
+@mixin socialMediaIcon($image: $image-social-media-placeholder) {
+  @for $i from 0 through 3 {
+    $item: nth($socialMediaList, $i + 1);
+    div.#{$item} {
+      background: url($image) #{(0 - (38 * $i))}px 0;
+    }
+  }
+}
+
+@mixin setDimensions($width: "null", $height: "null") {
+  @if $width != "null" {
+    width: $width;
+  }
+  @if $height != "null" {
+    height: $height;
+  }
+}
+
+@mixin setFloat($float: "null", $clear: "null") {
+  @if $float != "null" {
+    float: $float;
+  }
+  @if $clear != "null" {
+    clear: $clear;
+  }
+}
+
+@mixin setMargin($top: "null", $right: "null", $bottom: "null", $left: "null") {
+  @if $top == "null" and $right == "null" and $bottom = "null" and $left == "null" {
+    margin: 0;
+  } @else if {
+    @if $top != "null" {
+      margin-top: $top;
+    }
+    @if $right != "null" {
+      margin-right: $right;
+    }
+    @if $bottom != "null" {
+      margin-bottom: $bottom;
+    }
+    @if $left != "null" {
+      margin-left: $left;
+    }
+  }
+}
+
+@mixin setPadding($top: "null", $right: "null", $bottom: "null", $left: "null") {
+  @if $top == "null" and $right == "null" and $bottom = "null" and $left == "null" {
+    padding: 0;
+  } @else if {
+    @if $top != "null" {
+      padding-top: $top;
+    }
+    @if $right != "null" {
+      padding-right: $right;
+    }
+    @if $bottom != "null" {
+      padding-bottom: $bottom;
+    }
+    @if $left != "null" {
+      padding-left: $left;
+    }
+  }
+}

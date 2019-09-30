@@ -1,0 +1,101 @@
+figure {
+  @include setDimensions(400px, 190px);
+  background:url($image-logo) no-repeat 0 50px;
+  display: block;
+  @include setFloat(left, "null");
+  @include setMargin();
+  @include break($size-media-large) {
+    @include setDimensions(inherit, 140px);
+    float:none;
+    background-position:center;
+  }
+  @include break($size-media-small) {
+    background-size:contain;
+    height:100px;
+  }
+}
+nav {
+  @include setDimensions(540px, 190px);
+  @include setFloat(left,"null");
+  text-align:right;
+  ul {
+    list-style-type:none;
+    @include setMargin(95px, "null", "null", "null");
+    @include break($size-media-large) {
+      margin-top:0;
+    }
+    li {
+      display: inline;
+      font-size: 0.8em;
+      margin-right: 10px;
+      @include break($size-media-large) {
+        font-size:1em;
+        margin:0 10px;
+      }
+      @include break($size-media-medium) {
+        font-size:0.8em;
+        margin:0 5px;
+      }
+      a {
+        color:$color-tangerine1;
+        text-decoration:none;
+        letter-spacing:-0.01em;
+        &:hover {
+          color:$color-white1;
+        }
+      }
+    }
+  }
+
+  @include break($size-media-large) {
+    @include setDimensions(inherit, 50px);
+    float:none;
+    text-align:center;
+  }
+  @include break($size-media-small) {
+    margin-bottom:40px !important;
+  }
+}
+
+.greybar {
+  @include setDimensions(100%, 90px);
+  background:$color-white2;
+  clear:both;
+  @include setPadding(30px, "null", "null", "null");
+  @include break($size-media-small) {
+    display:none;
+  }
+}
+
+footer {
+  @include setDimensions(100%, 120px);
+  @include setFloat("null", "null");
+  @include setPadding(50px, "null", "null", "null");
+  background:#30353D;
+  text-align:center;
+  color:#FFF;
+
+  @include break($size-media-small) {
+    text-align:center;
+  }
+  p, img {
+    @include break($size-media-small) {
+      float:none;margin:0;
+    }
+  }
+}
+
+.social-media {
+  margin:0 auto;
+  width:165px;
+  div {
+    float:left;
+    margin-right:5px;
+  }
+  a {
+    display:block;
+    @include setDimensions(36px, 36px);
+    text-indent:-9999px;
+  }
+  @include socialMediaIcon($image-social-media);
+}
